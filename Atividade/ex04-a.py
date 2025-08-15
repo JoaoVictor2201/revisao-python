@@ -1,17 +1,3 @@
-"""
-Desenvolver um programa para verificar a nota dos alunos em uma prova com 10
-questões. 
-
-O programa deve seguir os seguintes passos:
-• Comparar as respostas fornecidas pelo aluno com o gabarito da prova.
-• Calcular o total de acertos, atribuindo 1 ponto para cada resposta correta.
-• Após cada aluno utilizar o sistema, perguntar se outro aluno deseja fazer a prova.
-
-Após todos os alunos terem respondido, o programa deve informar:
-• O maior e o menor número de acertos entre os alunos.
-• O total de alunos que utilizaram o sistema.
-• A média das notas da turma.
-"""
 gabarito = ["B", "D", "D", "A", "B", "C", "D", "B", "E", "C"]
 
 def respostas(respostas=""): 
@@ -44,11 +30,23 @@ def comparador(respostas):
     return numAlunos
 
 def mostrarNotas(notas):
-   print(max(notas[]))
-    
+    if notas:
+        maior = max(notas)
+        menor = min(notas)
+        totalAlunos = len(notas)
+        media = sum(notas) / totalAlunos
+
+        print("\n=== Resultados Finais ===")
+        print(f"Maior número de acertos: {maior}")
+        print(f"Menor número de acertos: {menor}")
+        print(f"Total de alunos: {totalAlunos}")
+        print(f"Média da turma: {media:.2f}")
+
+    else:
+        print("Nenhum aluno respondeu a prova.")
 
 while True:
     lista_respostas = respostas()
     repetir = comparador(lista_respostas)
-    if not repetir:
-        break
+    mostrar = mostrarNotas(notas)
+    break

@@ -1,23 +1,14 @@
-"""
-Um funcionário de uma empresa recebe aumento salarial anualmente: Sabe-se que:
-• Esse funcionário foi contratado em 1995, com salário inicial de R$ 1.000,00;
-• Em 1996 recebeu aumento de 1,5% sobre seu salário inicial;
-• A partir de 1997 (inclusive), os aumentos salariais sempre correspondem ao dobro do percentual do ano anterior.
+salarioInicial = 1000
+salarioAtual = salarioInicial
 
-Faça um programa que determine o salário atual desse funcionário. Após concluir isto, altere o programa permitindo que o usuário digite o salário inicial do funcionário.
-"""
+anoInicio = 1995
+anoAtual = 2025
+percAumento = 1.5
 
-while True:
-    anoContratado = int(input("Em que ano você foi contratado? "))
-    anoAtual = 2025
-    porcentagemInicial = 1.5
-    if anoContratado < 1995:
-        print("O ano de contratação deve ser posterior a 1995.")
-    salarioInicial = float(input("Qual era o seu salário inicial? "))
-    if salarioInicial < 0 or "":
-        print("Salário inválido.")
-    calculo = anoContratado - anoAtual
-    
+for ano in range(anoInicio + 1, anoAtual + 1):
+  aumento = salarioAtual * (percAumento / 100)
+  salarioAtual += aumento
+  print(f'Ano {ano} - Aumento: {percAumento:.2f}% - Salario: R$ {salarioAtual:.2f}')
+  percAumento += 2
 
-
-
+print(f'\n Salario atual em {anoAtual}: R$ {salarioAtual:.2f}')
